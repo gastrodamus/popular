@@ -31,20 +31,6 @@ componentDidMount() {
         }
     });
 }
-// axios.get(`/popular/:${num}`)
-// .then(({data}) => this.setState(() => {list:data} ))
-// .catch((err)=>console.log(err))
-
-// $.ajax({
-//     method: 'GET',
-//     url: `/popular/:${num}`,
-//     success: (data) => {
-//         console.log(data)
-//         this.setState(() => {
-//             return {list: data};
-//           });
-//     }
-//  });
 
 clickScroll(container,scoll,miliSec,distance,value){
     var count = 0;

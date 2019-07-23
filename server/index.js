@@ -3,7 +3,8 @@ const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const db = require('../database/seed.js');
-var app = express();
+
+const app = express();
 
 const port = 3002;
 
@@ -27,4 +28,4 @@ app.get('/popular/:id', (req, res) => {
   });
 });
 
-app.listen(port,() => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
