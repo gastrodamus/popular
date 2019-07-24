@@ -17,7 +17,7 @@ const seed = function seedData() {
   const ranNum = function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   };
-  for (let i = 1; i < 100; i += 1) {
+  for (let i = 0; i < 100; i += 1) {
     const names = faker.lorem.word;
     const image1 = `https://popularlist.s3-us-west-1.amazonaws.com/munch${ranNum(100)}.jpg`;
 
@@ -31,9 +31,9 @@ const seed = function seedData() {
     });
     popDish.save(function (err){
       if (err) return console.error(err);
-      console.log('saved')
     });
   }
+  console.log('seeding success');
 };
 seed();
 seed();

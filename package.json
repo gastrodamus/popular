@@ -8,7 +8,7 @@
     "test1": "jest",
     "react-dev": "webpack -p --watch",
     "seed": "node ./database/seed.js",
-    "start": "npm run server && npm run seed"
+    "start": "npm run server"
   },
   "repository": {
     "type": "git",
