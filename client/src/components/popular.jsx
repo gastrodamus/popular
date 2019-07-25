@@ -22,9 +22,8 @@ componentDidMount() {
     let num = urlStrings [urlStrings.length-2]; 
     $.ajax({
         method: 'GET',
-        url: `/popular/${num}`,
+        url: `/${num}/popularDish`,
         success: (data) => {
-            console.log(typeof data, 'Im not nothing')
             this.setState(() => {
                 return {list: data};
             });
@@ -72,4 +71,3 @@ render() {
 }
 
 export default Popular
-

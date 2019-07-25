@@ -35,14 +35,15 @@ const seed = function seedData() {
   }
   console.log('seeding success');
 };
-seed();
-seed();
-seed();
-seed();
-seed();
-seed();
-seed();
-seed();
-seed();
-seed();
+// seed();
+// seed();
+// seed();
+// seed();
+// seed();
+// seed();
+// seed();
+// seed();
+// seed();
+// seed();
+
 module.exports.Dish = Dish;
