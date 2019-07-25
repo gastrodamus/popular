@@ -15,8 +15,9 @@ What are your service's inputs and outputs (API Spec)?
 **Output**: Upon module initialization, output will be JSON of all popular dished and specific information of each.
             Upon additional `dishId` query, output will be JSON of single popular dish and its specific information.
 
-```
 `GET /:restaurantId/popularDish`
+
+```
 {
   restaurantID: <Number>,
   restaurantName: <String>,
@@ -30,8 +31,11 @@ What are your service's inputs and outputs (API Spec)?
     ...
   ]
 }
+```
 
 `GET /:restaurantId/popularDish/:dishId`
+
+```
 {
   dishId: <Number>,
   dishName: <String>,
@@ -40,6 +44,7 @@ What are your service's inputs and outputs (API Spec)?
   reviewCount: <Number>
 }
 ```
+
 ### Read (GET)
 
 `GET /:restaurantId/popularDish`
