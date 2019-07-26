@@ -4,7 +4,7 @@ CREATE TABLE restaurant (
    PRIMARY KEY(restaurant_id)
 );
 /* photo_count and review_count will be replaced with foreign key in the proxy version */
-CREATE TABLE post (
+CREATE TABLE dish (
    restaurant_id int,
    dish_id       int,
    dish_images   varchar,
