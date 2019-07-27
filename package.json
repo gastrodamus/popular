@@ -8,6 +8,7 @@
     "test1": "jest",
     "react-dev": "webpack -p --watch",
     "seed": "node ./database/seed.js",
+    "json-server": "json-server reviewdb.json",
     "start": "npm run server"
   },
   "repository": {
@@ -50,16 +51,21 @@
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {
+    "aws-sdk": "^2.500.0",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "fs": "0.0.1-security",
     "http-proxy": "^1.17.0",
     "jest-environment-enzyme": "^7.0.2",
     "jquery": "^3.4.1",
+    "json-server": "^0.15.0",
     "mongoose": "^5.6.4",
     "morgan": "^1.9.1",
+    "pg": "^7.12.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "request": "^2.88.0"
   }
 }
