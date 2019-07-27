@@ -18,6 +18,7 @@ const uploadImage = (url, fileName, callback) => {
       const param = {
         ACL: 'public-read',
         Bucket: 'gastrodamus-images',
+        ContentType: res.headers['content-type'],
         Body: body,
         Key: fileName,
       };
@@ -33,7 +34,7 @@ const uploadImage = (url, fileName, callback) => {
 
 for (let i = 0; i < 1000; i += 1) {
   const image = 'https://source.unsplash.com/600x400/?dish';
-  uploadImage(image, `dish/${i + 1}.png`, (err, data) => {
+  uploadImage(image, `dish/${i + 1}.jpg`, (err, data) => {
     if (err) {
       console.log('error occured: ', err);
     }
