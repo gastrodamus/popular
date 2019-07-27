@@ -2,3 +2,4 @@ node_modules
 client/dist/bundle.js
 munch_popular.pen
 csv
+database/s3.config.js
