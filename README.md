@@ -6,8 +6,6 @@ What are your service's inputs and outputs (API Spec)?
 
 `GET /:restaurantId/popularDish`
 
-`GET /:restaurantId/popularDish/:dishId`
-
 
 **Input**: `restaurantID` identifies which restaurant to get popular dishes from
             `dishId` identifies which one of dishes to get single popular dish from 
