@@ -33,17 +33,6 @@ What are your service's inputs and outputs (API Spec)?
 }
 ```
 
-`GET /:restaurantId/popularDish/:dishId`
-
-```
-{
-  dishId: <Number>,
-  dishName: <String>,
-  price: <Number>,
-  photoCount: <Number>,
-  reviewCount: <Number>
-}
-```
 
 ### Read (GET)
 
