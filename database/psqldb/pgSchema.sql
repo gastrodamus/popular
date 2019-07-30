@@ -11,12 +11,14 @@ CREATE TABLE restaurant (
 );
 
 CREATE TABLE popular_dish (
-  dish_id       SERIAL PRIMARY KEY,
-  restaurant_id INTEGER,
-  dish_image   TEXT,
-  dish_name     VARCHAR(80) NOT NULL CHECK (char_length(dish_name) < 80),
-  price_dish    INTEGER,
-  photo_count   INTEGER
+  dish_id         SERIAL PRIMARY KEY,
+  popular_dish_id INTEGER,
+  restaurant_id   INTEGER,
+  dish_image      TEXT,
+  dish_name       VARCHAR(80) NOT NULL CHECK (char_length(dish_name) < 80),
+  price_dish      INTEGER,
+  photo_count     INTEGER,
+  review_count    INTEGER
 );
 
 CREATE TABLE popular_dish_review (
