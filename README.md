@@ -75,36 +75,11 @@ Find popular dishes via various criteria. This method returns up to 10 results p
 }
 ```
 
-### Read (GET)
-
-`GET /:restaurantId/popularDish/:dishId`
-
-Find one popular dish out of entire popular dishes of the restaurant.
-
-#### URL Parameters
-
-| Name             | Type          | Description                                                            |
-| ---------------- |:-------------:| :----------------------------------------------------------------------|
-| `restaurantId`   | `integer`     | *Required.* Restaurant identifier for the targeted restaruant.         |
-| `dishId`         | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
-
-#### Output
-
-```
-{
-  dishId: <Number>,
-  dishName: <String>,
-  price: <Number>,
-  photoCount: <Number>,
-  reviewCount: <Number>
-}
-```
-
 ### Create (POST)
 
 create one popular dish record to the database.
 
-`POST /:restaurantId/popularDish/:dishId`
+`POST /:restaurantId/popularDish/`
 
 #### URL Parameters
 
@@ -138,14 +113,13 @@ create one popular dish record to the database.
 
 Update one review record in the database.
 
-`PUT /:restaurantId/popular/:dishId`
+`PUT /:restaurantId/popular/`
 
 #### URL Parameters
 
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
 | `restaurantId`   | `integer`     | *Required.* Restaurant identifier for the targeted restaruant.         |
-| `dishId`         | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
 
 #### Data Parameters
 | Name             | Type          | Description                                                            |
@@ -171,12 +145,12 @@ Update one review record in the database.
 
 Delete one review record from the database.
 
-`DELETE /:restaurantId/popular/:dishId`
+`DELETE /:restaurantId/popular/`
 
 #### Parameters
 
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
-| `dishId`         | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
+| `restaurantId`   | `integer`     | *Required.* Restaurant identifier for the targeted restaruant.         |
 
 ### Database Schema
