@@ -73,12 +73,10 @@ create one popular dish record to the database.
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
 | `restaurantId`   | `integer`     | *Required.* Restaurant identifier for the targeted restaruant.         |
-| `dishId`         | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
 
 #### Data Parameters
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
-| `dishId`         | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
 | `dishName`       | `string`      | the name of the popular dish.                                          |
 | `price `         | `integer`     | the price of the dish                                                  |
 | `phothCount`     | `integer`     | the number of photo data of the dish                                   |
@@ -98,7 +96,7 @@ create one popular dish record to the database.
 
 ### Update (PUT)
 
-Update one review record in the database.
+Update one dish record in the database.
 
 `PUT /:restaurantId/popular/`
 
@@ -130,7 +128,7 @@ Update one review record in the database.
 
 ### Delete (DELETE)
 
-Delete one review record from the database.
+Delete one dish record from the database.
 
 `DELETE /:restaurantId/popular/`
 
