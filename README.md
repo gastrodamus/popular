@@ -51,7 +51,9 @@ Find popular dishes via various criteria. This method returns up to 10 results p
   restaurantID: <Number>,
   restaurantName: <String>,
   popular: [{
+    restaurantId: <Number>,
     dishId: <Number>,
+    popularDishId: <Number>,
     dishName: <String>,
     price: <Number>,
     photoCount: <Number>,
@@ -61,6 +63,34 @@ Find popular dishes via various criteria. This method returns up to 10 results p
   ]
 }
 ```
+
+### Read (GET)
+
+`GET /:restaurantId/popularDish/:popularDishId`
+
+Find one popular dish out of entire popular dishes of the restaurant.
+
+#### URL Parameters
+
+| Name             | Type          | Description                                                            |
+| ---------------- |:-------------:| :----------------------------------------------------------------------|
+| `restaurantId`   | `integer`     | *Required.* Restaurant identifier for the targeted restaruant.         |
+| `popularDishId`  | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
+
+#### Output
+
+```
+{           
+  restaurantId: <Number>,
+  dishId: <Number>,
+  popularDishId: <Number>,
+  dishName: <String>,
+  price: <Number>,
+  photoCount: <Number>,
+  reviewCount: <Number>
+}
+```
+
 
 ### Create (POST)
 
@@ -77,6 +107,7 @@ create one popular dish record to the database.
 #### Data Parameters
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
+| `popularDishId`  | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
 | `dishName`       | `string`      | the name of the popular dish.                                          |
 | `price `         | `integer`     | the price of the dish                                                  |
 | `phothCount`     | `integer`     | the number of photo data of the dish                                   |
@@ -85,7 +116,9 @@ create one popular dish record to the database.
 #### Output
 ```
 {
+  restaurantId: <Number>,
   dishId: <Number>,
+  popularDishId: <Number>,
   dishName: <String>,
   price: <Number>,
   photoCount: <Number>,
@@ -98,7 +131,7 @@ create one popular dish record to the database.
 
 Update one dish record in the database.
 
-`PUT /:restaurantId/popular/`
+`PUT /:restaurantId/popular/:popularDishId`
 
 #### URL Parameters
 
@@ -109,7 +142,7 @@ Update one dish record in the database.
 #### Data Parameters
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
-| `dishId`         | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
+| `popularDishId`  | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
 | `dishName`       | `string`      | the name of the popular dish.                                          |
 | `price `         | `integer`     | the price of the dish                                                  |
 | `phothCount`     | `integer`     | the number of photo data of the dish                                   |
@@ -118,7 +151,9 @@ Update one dish record in the database.
 #### Output
 ```
 {
+  restaurantId: <Number>,
   dishId: <Number>,
+  popularDishId: <Number>,
   dishName: <String>,
   price: <Number>,
   photoCount: <Number>,
@@ -130,12 +165,13 @@ Update one dish record in the database.
 
 Delete one dish record from the database.
 
-`DELETE /:restaurantId/popular/`
+`DELETE /:restaurantId/popular/:popularDishId`
 
 #### Parameters
 
 | Name             | Type          | Description                                                            |
 | ---------------- |:-------------:| :----------------------------------------------------------------------|
 | `restaurantId`   | `integer`     | *Required.* Restaurant identifier for the targeted restaruant.         |
+| `popularDishId`  | `integer`     | *Required.* dish identifier for the targeted popular dish.             |
 
 ### Database Schema
