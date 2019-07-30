@@ -88,7 +88,7 @@ function generateData() {
         console.timeEnd('data generation time consuming');
         // last time!
         const imageId = i % 1000;
-        createRestaurant(i, writeStream);
+        createRestaurant(writeStream);
         createDishes(i, imageId, writeDishesStream, writeReviewStream);
         i -= 1;
       } else {
@@ -96,7 +96,7 @@ function generateData() {
         // don't pass the callback, because we're not done yet.
         const imageId = i % 1000;
         createDishes(i, imageId, writeDishesStream, writeReviewStream);
-        ok = createRestaurant(i, writeStream);
+        ok = createRestaurant(writeStream);
         i -= 1;
       }
     } while (i > 0 && ok);

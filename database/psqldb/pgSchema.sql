@@ -22,12 +22,7 @@ CREATE TABLE popular_dish (
 );
 
 CREATE TABLE popular_dish_review (
-  review_id     SERIAL PRIMARY KEY,
-  restaurant_id INTEGER,
-  dish_id       INTEGER
+  review_id         SERIAL PRIMARY KEY,
+  restaurant_id     INTEGER,
+  popular_dish_id   INTEGER
 );
-
-
--- REFERENCES popular_dishes_schema.restaurant(restaurant_id)
--- REFERENCES popular_dishes_schema.restaurant(restaurant_id),
--- REFERENCES popular_dishes_schema.popular_dish(dish_id),
