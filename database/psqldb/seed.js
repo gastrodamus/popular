@@ -2,12 +2,14 @@ const faker = require('faker');
 const fs = require('fs');
 const path = require('path');
 
+//generate random number
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+//generate left skewed random number
 const randn_bm = (min, max, skew) => {
   let u = 0;
   let v = 0;
@@ -80,20 +82,18 @@ function generateData() {
 
   console.time('data generation time consuming');
   let i = 10000000;
-
+  
+  //drain
   function write() {
     let ok = true;
     do {
       if (i === 1) {
         console.timeEnd('data generation time consuming');
-        // last time!
         const imageId = i % 1000;
         createRestaurant(writeStream);
         createDishes(i, imageId, writeDishesStream, writeReviewStream);
         i -= 1;
       } else {
-        // see if we should continue, or wait
-        // don't pass the callback, because we're not done yet.
         const imageId = i % 1000;
         createDishes(i, imageId, writeDishesStream, writeReviewStream);
         ok = createRestaurant(writeStream);
@@ -101,8 +101,6 @@ function generateData() {
       }
     } while (i > 0 && ok);
     if (i > 0) {
-      // had to stop early!
-      // write some more once it drains
       writeStream.once('drain', write);
     }
   }
