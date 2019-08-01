@@ -65,11 +65,11 @@ function generateData() {
       i -= 1;
       if (i === 1) {
         console.timeEnd('data generation time consuming');
-        const imageId = i % 100;
+        const imageId = i % 1000;
         // createRestaurant(i, writeStream);
         createDishes(i, imageId, writeDishesStream);
       } else {
-        const imageId = i % 100;
+        const imageId = i % 1000;
         ok = createDishes(i, imageId, writeDishesStream);
         // ok = createRestaurant(i, writeStream);
       }
