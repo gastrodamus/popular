@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS restaurant_popular_dishes;
 CREATE DATABASE restaurant_popular_dishes;
-\connect restaurant_popular_dishes
+\connect restaurant_popular_dishes root
 
 -- DROP SCHEMA IF EXISTS popular_dishes_schema CASCADE;
 -- CREATE SCHEMA IF NOT EXISTS popular_dishes_schema AUTHORIZATION "root";
@@ -26,3 +26,12 @@ CREATE TABLE popular_dish_review (
   restaurant_id     INTEGER,
   popular_dish_id   INTEGER
 );
+
+CREATE TABLE popular_dish_photo (
+  photo_id        SERIAL PRIMARY KEY,
+  restaurant_id   INTEGER,
+  photo_url       TEXT
+)
+
+-- add foreign key for dish_id in review and photo table -> don't need popular_dish_id anymore
+-- add photo count table later
