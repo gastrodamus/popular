@@ -4,7 +4,7 @@
   "description": "Popular dishes list.  That will scroll and list out the menu items and prices.",
   "main": "index.js",
   "scripts": {
-    "server": "node ./server/index.js",
+    "server": "nodemon ./database/psqldb/pgsqlServer.js",
     "test1": "jest",
     "react-dev": "webpack -p --watch",
     "seed": "node ./database/seed.js",
@@ -64,6 +64,7 @@
     "json-server": "^0.15.0",
     "mongoose": "^5.6.4",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
     "pg": "^7.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
