@@ -73,8 +73,9 @@ const updatePopularDish = async (req, res) => {
 
 }
 
+// DELETE /api/popularDish/:restaurantId/
 const deletePopularDish = async (req, res) => {
-  
+
 }
 
 module.exports = {
