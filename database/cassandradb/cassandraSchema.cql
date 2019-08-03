@@ -7,10 +7,15 @@ WITH replication = {
 
 USE restaurants_popular_dishes;
 
+CREATE TABLE restaurants_popular_dishes.restaurants (
+   restaurant_id     uuid,
+   restaurant_name   text
+   PRIMARY KEY (restaurant_id)
+)
+
 CREATE TABLE restaurants_popular_dishes.dishes_by_restaurants (
-   restaurant_id     int,
-   dish_id           int,
-   restaurant_name   text, 
+   restaurant_id     uuid,
+   dish_id           int, 
    dish_images       varchar,
    dish_name         varchar,
    dish_price        int,
@@ -19,5 +24,3 @@ CREATE TABLE restaurants_popular_dishes.dishes_by_restaurants (
    PRIMARY KEY (restaurant_id, dish_id)
 );
 
-CREATE INDEX restaurant_name_index ON restaurants_popular_dishes.dishes_by_restaurants(restaurant_name);
-CREATE INDEX dish_name_index ON restaurants_popular_dishes.dishes_by_restaurants(dish_name);
