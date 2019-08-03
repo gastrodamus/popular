@@ -3,7 +3,7 @@
 // POST /api/popular/:restaurantId/
 // PUT /api/popular/:restaurantId/:popularDishId
 // DELETE /api/popular/:restaurantId/:popularDishId
-
+const newrelic = require('newrelic');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
