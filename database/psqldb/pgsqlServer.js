@@ -6,20 +6,28 @@
 
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 const controllers = require('./pgsqlRouter.js');
 
 const router = express.Router();
 const app = express();
 const port = 3002;
 
+app.use(express.json());
 app.use('/:restaurantId', express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 app.use('/api', router);
-app.use(express.json());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
+
+//get popular dishes of restaurant
 router.get('/popularDish/:restaurantId/', controllers.getRestaurantDishes);
-// router.get('/:restaurantId/popularDish/:popularDishId', controllers.getPopularDish);
 
-// router.post('/:restaurantId/popularDish', controllers.postPopularDish);
+//get a single popular dish of restaurant
+router.get('/popularDish/:restaurantId/:popularDishId', controllers.getPopularDish);
+
+//add a single popular dish of restaurant to the dish list
+router.post('/popularDish/:restaurantId', controllers.addPopularDish);
 
 // router.patch('/:restaurantId/popularDish', controllers.patchPopularDish);
 

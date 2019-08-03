@@ -30,15 +30,57 @@ const queryDb = async (q) => {
 // PUT /api/popular/:restaurantId/:popularDishId
 // DELETE /api/popular/:restaurantId/:popularDishId
 
+
+// GET /api/popularDish/:restaurantId
 const getRestaurantDishes = async (req, res) => {
-  const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId}`);
-  return (data ? res.send(data) : res.sendStatus(404));
+  try {
+    const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId}`);
+    return res.status(200).send(data);
+  } catch(e) {
+      console.error(e);
+      return res.status(400).send(e);
+  }
 }
 
+// GET /api/popularDish/:restaurantId/:dishId
+const getPopularDish = async (req, res) => {
+  try {
+    const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId} AND popular_dish_id=${req.params.popularDishId}`)
+    return res.status(200).send(data);
+  } catch(e) {
+      console.error(e);
+      return res.status(400).send(e);
+  }
+}
 
+// POST /api/popularDish/:restaurantId/
+const addPopularDish = async (req, res) => {
+  try {
+    const text = `INSERT INTO 
+                  popular_dish(popular_dish_id, restaurant_id, dish_image, dish_name, price_dish, photo_count, review_count)
+                  VALUES (${req.body.popularDishId}, ${req.body.resId}, '${req.body.dishImage}',
+                         '${req.body.dishName}', ${req.body.dishPrice}, ${req.body.photoCount}, ${req.body.reviewCount})`;
+    const data = await queryDb(text);
+    return res.status(200).send('post success');
+  } catch(e) {
+      console.error(e);
+      return res.status(400).send(e);
+  }
+}
+
+// UPDATE /api/popularDish/:restaurantId/
+const updatePopularDish = async (req, res) => {
+
+}
+
+const deletePopularDish = async (req, res) => {
+  
+}
 
 module.exports = {
   getRestaurantDishes,
+  getPopularDish,
+  addPopularDish
 };
 
 // app.get('/all_users', async (req, res) => {
