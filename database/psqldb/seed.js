@@ -35,11 +35,15 @@ const createRestaurant = (writeStream) => {
 };
 
 // create popular dish data
-const createDishes = (restaurantId, imageId, writeDishesStream, writeReviewStream) => {
+const createDishes = (restaurantId, imageId, writeDishesStream, writeReviewStream, writeImageStream) => {
   let dishesData = '';
   for (let i = 1; i <= 10; i += 1) {
     const dishName = `${faker.lorem.word()}`;
-    const dishImage = `https://gastrodamus-images.s3.us-east-2.amazonaws.com/dish/${imageId}.jpg`;
+    let imageNumDish = (imageId + i * 10) === 0 ? 1 : imageId + i * 10;
+    if (imageNumDish > 1000) {
+      imageNumDish = 1000;
+    }
+    const dishImage = `https://gastrodamus-images.s3.us-east-2.amazonaws.com/dish/${imageNumDish}.jpg`;
     const dishPrice = getRandomInt(10, 50);
     const photoCount = getRandomInt(5, 150);
     const reviewCount = getRandomInt(5, 150);
@@ -60,8 +64,8 @@ const createDishes = (restaurantId, imageId, writeDishesStream, writeReviewStrea
     // create review data for each of dishes
     let reviewsData = '';
     normalized = randn_bm(0, 1, 5);
-    randomReviewCount = normalized * 100;
-    for (let j = 0; j < randomReviewCount; j++) {
+    randomCount = normalized * 100;
+    for (let j = 0; j < randomCount; j++) {
       let reviewData = [
         restaurantId,
         popularDishId
@@ -71,6 +75,21 @@ const createDishes = (restaurantId, imageId, writeDishesStream, writeReviewStrea
       reviewsData += '\n';
     }
     writeReviewStream.write(reviewsData);
+
+    let imagesData = '';
+    for (let j = 0; j < randomCount; j++) {
+      const imageNumPhoto = Math.random(1, 1000);
+      const imageUrl = `https://gastrodamus-images.s3.us-east-2.amazonaws.com/dish/${imageNumPhoto}.jpg`;
+      let imageData = [
+        restaurantId,
+        imageUrl
+      ];
+      imageData = imageData.join(',');
+      imagesData += imageData;
+      imagesData += '\n';
+    }
+    writeImageStream.write(imagesData);
+
   }
   writeDishesStream.write(dishesData);
 };
@@ -79,6 +98,7 @@ function generateData() {
   const writeStream = fs.createWriteStream(path.resolve(__dirname, '../csv/restaurants.csv'));
   const writeDishesStream = fs.createWriteStream(path.resolve(__dirname, '../csv/dishes.csv'));
   const writeReviewStream = fs.createWriteStream(path.resolve(__dirname, '../csv/reviews.csv'));
+  const writeImageStream = fs.createWriteStream(path.resolve(__dirname, '../csv/images.csv'));
 
   console.time('data generation time consuming');
   let i = 10000000;
@@ -91,11 +111,11 @@ function generateData() {
         console.timeEnd('data generation time consuming');
         const imageId = i % 1000;
         createRestaurant(writeStream);
-        createDishes(i, imageId, writeDishesStream, writeReviewStream);
+        createDishes(i, imageId, writeDishesStream, writeReviewStream, writeImageStream);
         i -= 1;
       } else {
         const imageId = i % 1000;
-        createDishes(i, imageId, writeDishesStream, writeReviewStream);
+        createDishes(i, imageId, writeDishesStream, writeReviewStream, writeImageStream);
         ok = createRestaurant(writeStream);
         i -= 1;
       }
