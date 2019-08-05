@@ -69,14 +69,14 @@ const addPopularDish = async (req, res) => {
 }
 
 // UPDATE /api/popularDish/:restaurantId/
-const updatePopularDish = async (req, res) => {
+// const updatePopularDish = async (req, res) => {
 
-}
+// }
 
 // DELETE /api/popularDish/:restaurantId/
-const deletePopularDish = async (req, res) => {
+// const deletePopularDish = async (req, res) => {
 
-}
+// }
 
 module.exports = {
   getRestaurantDishes,

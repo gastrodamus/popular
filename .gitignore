@@ -1,5 +1,24 @@
+##node module##
 node_modules
+
+##webpack bundle##
 client/dist/bundle.js
+
+##cassandra database##
+database/cassandradb 
+
+##ec2 key-pair##
 munch_popular.pen
+
+##csv files##
 csv
+
+##test##
+coverage
+
+##s3 config file##
 database/s3.config.js
+
+##new relic config file##
+newrelic.js
+newrelic_agent.log

@@ -8,8 +8,6 @@
     "test1": "jest",
     "react-dev": "webpack -p --watch",
     "seed": "node ./database/seed.js",
-    "json-server": "json-server reviewdb.json",
-    "start": "npm run server"
   },
   "repository": {
     "type": "git",
@@ -64,6 +62,7 @@
     "json-server": "^0.15.0",
     "mongoose": "^5.6.4",
     "morgan": "^1.9.1",
+    "newrelic": "^5.11.0",
     "nodemon": "^1.19.1",
     "pg": "^7.12.0",
     "react": "^16.8.6",

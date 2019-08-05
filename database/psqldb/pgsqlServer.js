@@ -3,8 +3,10 @@
 // POST /api/popular/:restaurantId/
 // PUT /api/popular/:restaurantId/:popularDishId
 // DELETE /api/popular/:restaurantId/:popularDishId
+const newrelic = require('newrelic');
 
 const path = require('path');
+const morgan = require('morgan');
 const express = require('express');
 const bodyParser = require('body-parser');
 const controllers = require('./pgsqlRouter.js');
@@ -14,11 +16,8 @@ const app = express();
 const port = 3002;
 
 app.use(express.json());
-app.use('/:restaurantId', express.static(path.resolve(__dirname, '..', 'client', 'dist')));
+app.use('/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
 app.use('/api', router);
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-
 
 //get popular dishes of restaurant
 router.get('/popularDish/:restaurantId/', controllers.getRestaurantDishes);
@@ -30,7 +29,5 @@ router.get('/popularDish/:restaurantId/:popularDishId', controllers.getPopularDi
 router.post('/popularDish/:restaurantId', controllers.addPopularDish);
 
 // router.patch('/:restaurantId/popularDish', controllers.patchPopularDish);
-
 // router.delete('/:restaurantId/popularDish', controllers.deletePopularDish);
-
 app.listen(port, () => console.log(`Server listening on port ${port}`));
