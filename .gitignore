@@ -21,3 +21,4 @@ database/s3.config.js
 
 ##new relic config file##
 newrelic.js
+newrelic_agent.log

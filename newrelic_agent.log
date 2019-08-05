@@ -2526,3 +2526,9 @@
 {"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:56:18.920Z","msg":"Harvest finished."}
 {"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:57:18.640Z","msg":"Harvest started."}
 {"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:57:18.914Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:58:18.642Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:58:18.915Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:59:18.646Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T22:59:18.930Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T23:00:18.648Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Minhos-MacBook-Pro.local","pid":36910,"time":"2019-08-05T23:00:18.904Z","msg":"Harvest finished."}
