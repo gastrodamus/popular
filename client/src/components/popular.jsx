@@ -20,15 +20,14 @@ class Popular extends React.Component {
 componentDidMount() {
     let urlStrings = location.href.split('/')
     let num = urlStrings [urlStrings.length-2]; 
-    $.ajax({
-        method: 'GET',
-        url: `/${num}/popularDish`,
-        success: (data) => {
-            this.setState(() => {
-                return {list: data};
-            });
-        }
-    });
+    axios.get(`/api/popularDish/${num}`)
+        .then((res) => {
+            let dishesData = res.data;
+            console.log(dishesData);
+            this.setState({
+                list: dishesData
+            })
+        })
 }
 
 clickScroll(container,scoll,miliSec,distance,value){

@@ -8,8 +8,6 @@
     "test1": "jest",
     "react-dev": "webpack -p --watch",
     "seed": "node ./database/seed.js",
-    "json-server": "json-server reviewdb.json",
-    "start": "npm run server"
   },
   "repository": {
     "type": "git",
