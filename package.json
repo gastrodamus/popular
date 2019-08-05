@@ -7,7 +7,7 @@
     "server": "nodemon ./database/psqldb/pgsqlServer.js",
     "test1": "jest",
     "react-dev": "webpack -p --watch",
-    "seed": "node ./database/seed.js",
+    "seed": "node ./database/seed.js"
   },
   "repository": {
     "type": "git",
