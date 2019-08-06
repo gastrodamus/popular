@@ -21,6 +21,11 @@ CREATE TABLE popular_dish (
   review_count    INTEGER
 );
 
+--INNER JOIN
+-- SELECT * FROM restaurant AS res INNER JOIN popular_dish AS pd ON res.restaurant_id = pd.restaurant_id WHERE 
+
+
+
 CREATE TABLE popular_dish_review (
   review_id         SERIAL PRIMARY KEY,
   restaurant_id     INTEGER,

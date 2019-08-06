@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-app.use('/:restaurantId', express.static(path.resolve(__dirname, '..', 'client', 'dist')));
+app.use('/popular/:restaurantId', express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 
 //get the set of popular dishes
 app.get('/:restaurantId/popularDish', (req, res) => {
