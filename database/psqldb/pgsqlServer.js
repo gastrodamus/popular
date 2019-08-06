@@ -16,7 +16,7 @@ const app = express();
 const port = 3002;
 
 app.use(express.json());
-app.use('/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
+app.use('/popular/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
 app.use('/api', router);
 
 //get popular dishes of restaurant

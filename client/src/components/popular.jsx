@@ -23,7 +23,6 @@ componentDidMount() {
     axios.get(`/api/popularDish/${num}`)
         .then((res) => {
             let dishesData = res.data;
-            console.log(dishesData);
             this.setState({
                 list: dishesData
             })
