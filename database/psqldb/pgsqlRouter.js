@@ -1,5 +1,12 @@
 const { Pool } = require('pg');
 const axios = require('axios');
+const redis = require('redis');
+
+const client = redis.createClient(6379);
+
+client.on('error', (err) => {
+  console.log("Error " + err)
+});
 
 
 const pool = new Pool({
@@ -13,6 +20,20 @@ pool.on('error', (err, client) => {
   console.error('Unexpected error on idle client', err);
   process.exit(-1);
 });
+
+function cache(req, res, next) {
+  const restaurantId = req.params.restaurantId;
+  client.get(restaurantId, function (err, data) {
+      if (err) throw err;
+
+      if (data != null) {
+          res.send(JSON.parse(data));
+      } else {
+          next();
+      }
+  });
+}
+
 
 const queryDb = async (q) => {
   try {
@@ -33,8 +54,11 @@ const queryDb = async (q) => {
 
 // GET /api/popularDish/:restaurantId
 const getRestaurantDishes = async (req, res) => {
+  // console.log(req.params)
+  let restaurantId = req.params.restaurantId
   try {
     const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId}`);
+    client.setex(restaurantId, 3600, JSON.stringify(data));
     return res.status(200).send(data);
   } catch(e) {
       console.error(e);
@@ -43,28 +67,29 @@ const getRestaurantDishes = async (req, res) => {
 }
 
 // GET /api/popularDish/:restaurantId/:dishId
-const getPopularDish = async (req, res) => {
-  try {
-    const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId} AND popular_dish_id=${req.params.popularDishId}`)
-    return res.status(200).send(data);
-  } catch(e) {
-      console.error(e);
-      return res.status(400).send(e);
-  }
-}
+  // const getPopularDish = async (req, res) => {
+  //   try {
+  //     const dishId = await queryDb(`SELECT popular_dish_id FROM popular_dish WHERE restaurant_id = ${req.params.restaurantId}`);
+  //     const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId} AND popular_dish_id=${req.params.popularDishId}`)
+  //     return res.status(200).send(data);
+  //   } catch(e) {
+  //       console.error(e);
+  //       return res.status(400).send(e);
+  //   }
+  // }
 
 // POST /api/popularDish/:restaurantId/
 const addPopularDish = async (req, res) => {
   try {
     const text = `INSERT INTO 
                   popular_dish(popular_dish_id, restaurant_id, dish_image, dish_name, price_dish, photo_count, review_count)
-                  VALUES (${req.body.popularDishId}, ${req.body.resId}, '${req.body.dishImage}',
+                  VALUES (${req.body.popularDishId}, ${req.params.restaurantId}, '${req.body.dishImage}',
                          '${req.body.dishName}', ${req.body.dishPrice}, ${req.body.photoCount}, ${req.body.reviewCount})`;
     const data = await queryDb(text);
-    return res.status(200).send('post success');
+    return res.status(200).send('post success to restaurant id : ' + req.params.restaurantId);
   } catch(e) {
       console.error(e);
-      return res.status(400).send(e);
+      return res.sendstatus(400).send(e);
   }
 }
 
@@ -80,8 +105,8 @@ const addPopularDish = async (req, res) => {
 
 module.exports = {
   getRestaurantDishes,
-  getPopularDish,
-  addPopularDish
+  addPopularDish,
+  cache
 };
 
 // app.get('/all_users', async (req, res) => {

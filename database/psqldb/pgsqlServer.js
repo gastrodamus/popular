@@ -19,13 +19,13 @@ app.use(express.json());
 app.use('/popular/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
 app.use('/api', router);
 
-//get popular dishes of restaurant
-router.get('/popularDish/:restaurantId/', controllers.getRestaurantDishes);
+// get popular dishes of restaurant
+router.get('/popularDish/:restaurantId/', controllers.cache, controllers.getRestaurantDishes);
 
-//get a single popular dish of restaurant
-router.get('/popularDish/:restaurantId/:popularDishId', controllers.getPopularDish);
+// get a single popular dish of restaurant
+// router.get('/popularDish/:restaurantId/:popularDishId', controllers.getPopularDish);
 
-//add a single popular dish of restaurant to the dish list
+// add a single popular dish of restaurant to the dish list
 router.post('/popularDish/:restaurantId', controllers.addPopularDish);
 
 // router.patch('/:restaurantId/popularDish', controllers.patchPopularDish);
