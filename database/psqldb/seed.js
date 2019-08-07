@@ -62,33 +62,33 @@ const createDishes = (restaurantId, imageId, writeDishesStream, writeReviewStrea
     dishesData += '\n';
 
     // create review data for each of dishes
-    let reviewsData = '';
-    normalized = randn_bm(0, 1, 5);
-    randomCount = normalized * 100;
-    for (let j = 0; j < randomCount; j++) {
-      let reviewData = [
-        restaurantId,
-        popularDishId
-      ];
-      reviewData = reviewData.join(',');
-      reviewsData += reviewData;
-      reviewsData += '\n';
-    }
-    writeReviewStream.write(reviewsData);
+    // let reviewsData = '';
+    // normalized = randn_bm(0, 1, 5);
+    // randomCount = normalized * 100;
+    // for (let j = 0; j < randomCount; j++) {
+    //   let reviewData = [
+    //     restaurantId,
+    //     popularDishId
+    //   ];
+    //   reviewData = reviewData.join(',');
+    //   reviewsData += reviewData;
+    //   reviewsData += '\n';
+    // }
+    // writeReviewStream.write(reviewsData);
 
-    let imagesData = '';
-    for (let j = 0; j < randomCount; j++) {
-      const imageNumPhoto = Math.random(1, 1000);
-      const imageUrl = `https://gastrodamus-images.s3.us-east-2.amazonaws.com/dish/${imageNumPhoto}.jpg`;
-      let imageData = [
-        restaurantId,
-        imageUrl
-      ];
-      imageData = imageData.join(',');
-      imagesData += imageData;
-      imagesData += '\n';
-    }
-    writeImageStream.write(imagesData);
+    // let imagesData = '';
+    // for (let j = 0; j < randomCount; j++) {
+    //   const imageNumPhoto = Math.random(1, 1000);
+    //   const imageUrl = `https://gastrodamus-images.s3.us-east-2.amazonaws.com/dish/${imageNumPhoto}.jpg`;
+    //   let imageData = [
+    //     restaurantId,
+    //     imageUrl
+    //   ];
+    //   imageData = imageData.join(',');
+    //   imagesData += imageData;
+    //   imagesData += '\n';
+    // }
+    // writeImageStream.write(imagesData);
 
   }
   writeDishesStream.write(dishesData);

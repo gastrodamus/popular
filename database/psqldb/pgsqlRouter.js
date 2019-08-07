@@ -10,9 +10,9 @@ client.on('error', (err) => {
 
 
 const pool = new Pool({
-  user: 'root',
-  host: 'localhost',
-  database: 'restaurant_popular_dishes',
+  user: 'minh',
+  host: '3.16.37.237',
+  database: 'postgres',
   password: 'password',
 });
 

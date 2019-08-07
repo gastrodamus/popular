@@ -15,6 +15,7 @@ const router = express.Router();
 const app = express();
 const port = 3002;
 
+app.use(morgan('dev'));
 app.use(express.json());
 app.use('/popular/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
 app.use('/api', router);

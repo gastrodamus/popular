@@ -39,19 +39,3 @@ export default function () {
     "transaction time OK": (res) => res.timings.duration < 200
   });
 }
-
-// http.get(`http://localhost:3002/api/popularDish/${randDishId}/${randDishId}`);
-
-// post test
-// let url = `http://localhost:3002/api/popularDish/${randResId}`;
-// let payload = JSON.stringify({
-//   'popular_dish_id': 12,
-//   'restaurant_id': randResId,
-//   'dish_image': "https://gastrodamus-images.s3.us-east-2.amazonaws.com/dish/999.jpg",
-//   dish_name: "aspernaturs",
-//   price_dish: 46,
-//   photo_count: 65,
-//   review_count: 27
-// });
-// let params =  { headers: { "Content-Type": "application/json" } }
-// http.post(url, payload);
