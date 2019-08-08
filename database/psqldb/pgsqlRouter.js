@@ -8,12 +8,12 @@ client.on('error', (err) => {
   console.log("Error " + err)
 });
 
-
+//add database password
 const pool = new Pool({
   user: 'minh',
   host: '3.16.37.237',
   database: 'postgres',
-  password: 'password',
+  password: '',
 });
 
 pool.on('error', (err, client) => {
@@ -66,18 +66,6 @@ const getRestaurantDishes = async (req, res) => {
   }
 }
 
-// GET /api/popularDish/:restaurantId/:dishId
-  // const getPopularDish = async (req, res) => {
-  //   try {
-  //     const dishId = await queryDb(`SELECT popular_dish_id FROM popular_dish WHERE restaurant_id = ${req.params.restaurantId}`);
-  //     const data = await queryDb(`SELECT * FROM popular_dish WHERE restaurant_id=${req.params.restaurantId} AND popular_dish_id=${req.params.popularDishId}`)
-  //     return res.status(200).send(data);
-  //   } catch(e) {
-  //       console.error(e);
-  //       return res.status(400).send(e);
-  //   }
-  // }
-
 // POST /api/popularDish/:restaurantId/
 const addPopularDish = async (req, res) => {
   try {
@@ -109,11 +97,3 @@ module.exports = {
   cache
 };
 
-// app.get('/all_users', async (req, res) => {
-//   try {
-//     const users = await queries.getAllUsers();
-//     console.log(users);
-//   } catch(e) {
-//     // handle errors
-//   }
-// });

@@ -8,7 +8,6 @@ const newrelic = require('newrelic');
 const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
-const bodyParser = require('body-parser');
 const controllers = require('./pgsqlRouter.js');
 
 const router = express.Router();
