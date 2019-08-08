@@ -17,12 +17,12 @@ const port = 3002;
 
 app.use(morgan('dev'));
 app.use(express.json());
-app.use('/popular/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
-app.use('/api', router);
-
 app.get('/loaderio-abb820eebf97b45a4f704dd5d3f1e2cc', (req, res) => {
   res.status(200).send('loaderio-abb820eebf97b45a4f704dd5d3f1e2cc');
 });
+app.use('/popular/:restaurantId', express.static(path.resolve(__dirname, '..', '..', 'client', 'dist')));
+app.use('/api', router);
+
 
 // get popular dishes of restaurant
 router.get('/popularDish/:restaurantId/', controllers.cache, controllers.getRestaurantDishes);
