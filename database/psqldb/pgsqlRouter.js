@@ -13,7 +13,7 @@ const pool = new Pool({
   user: 'minh',
   host: '3.16.37.237',
   database: 'postgres',
-  password: '',
+  password: 'password',
 });
 
 pool.on('error', (err, client) => {
@@ -27,7 +27,7 @@ function cache(req, res, next) {
       if (err) throw err;
 
       if (data != null) {
-          res.send(JSON.parse(data));
+          res.send(data);
       } else {
           next();
       }
@@ -39,7 +39,7 @@ const queryDb = async (q) => {
   try {
     const result = await pool.query(q);
     return result.rows;
-  } catch (err) {
+  } catch (err) { 
     console.log(err.stack);
     return null;
   }
@@ -61,7 +61,6 @@ const getRestaurantDishes = async (req, res) => {
     client.setex(restaurantId, 3600, JSON.stringify(data));
     return res.status(200).send(data);
   } catch(e) {
-      console.error(e);
       return res.status(400).send(e);
   }
 }

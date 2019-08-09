@@ -3,10 +3,10 @@
 // POST /api/popular/:restaurantId/
 // PUT /api/popular/:restaurantId/:popularDishId
 // DELETE /api/popular/:restaurantId/:popularDishId
-const newrelic = require('newrelic');
+require('newrelic');
 
 const path = require('path');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const express = require('express');
 const controllers = require('./pgsqlRouter.js');
 
@@ -14,7 +14,7 @@ const router = express.Router();
 const app = express();
 const port = 3002;
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.json());
 app.get('/loaderio-abb820eebf97b45a4f704dd5d3f1e2cc', (req, res) => {
   res.status(200).send('loaderio-abb820eebf97b45a4f704dd5d3f1e2cc');
