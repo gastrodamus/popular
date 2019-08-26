@@ -1,6 +1,22 @@
-## Sigsa.io popular dish photo carousel backend architecture
+### gastrodamus
+popular dish photo carousel micro-service's backend architecture
 
-## Popular dish service API reference
+## Table of Contents
+ 1. [Tech Stack](#tech-stack)
+ 2. [API](#api)
+ 3. [Usage](#usage)
+ 4. [Requirements](#requirements)
+ 5. [Related Projects](#related-projects)
+ 
+## Tech Stack
+
+Back-end: Node.js, Express, AWS EC2, Nginx, Redis, AWS S3
+
+Database: PostgreSQL
+
+Load testing: Loader.io, K6, New Relic
+
+## API reference
 
 `GET /api/popularDish/:restaurantId`
 
@@ -89,23 +105,35 @@ Find one popular dish out of entire popular dishes of the restaurant.
 }
 ```
 
-
-
-### Database Schema
+## Usage
 ```
-CREATE TABLE restaurant (
-  restaurant_id    SERIAL PRIMARY KEY,
-  restaurant_name  VARCHAR(80) NOT NULL CHECK (char_length(restaurant_name) < 80)
-);
+bash
+# clone the current repo
+$ git clone https://github.com/gastrodamus/popular.git
 
-CREATE TABLE popular_dish (
-  dish_id         SERIAL PRIMARY KEY,
-  popular_dish_id INTEGER,
-  restaurant_id   INTEGER,
-  dish_image      TEXT,
-  dish_name       VARCHAR(80) NOT NULL CHECK (char_length(dish_name) < 80),
-  price_dish      INTEGER,
-  photo_count     INTEGER,
-  review_count    INTEGER
-);
+# install webpack
+$ npm install webpack
+$ npm install
+
+# populate data to the database
+$ npm run seed
+
+# bundle js files with webpack
+$ npm run react-dev
+
+# run the app
+$ npm run server
 ```
+
+
+## Requirements
+
+- Nvm
+- Node
+- Git
+
+## Related Projects
+
+  - https://github.com/gastrodamus/header
+  - https://github.com/gastrodamus/reservation
+
