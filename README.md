@@ -3,7 +3,7 @@ popular dish photo carousel micro-service's backend architecture
 
 ## Table of Contents
  1. [Tech Stack](#tech-stack)
- 2. [API](#api)
+ 2. [API reference](#api)
  3. [Usage](#usage)
  4. [Requirements](#requirements)
  5. [Related Projects](#related-projects)
