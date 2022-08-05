@@ -60,7 +60,7 @@
     "jest-environment-enzyme": "^7.0.2",
     "jquery": "^3.4.1",
     "json-server": "^0.15.0",
-    "mongoose": "^5.6.4",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "newrelic": "^5.11.0",
     "nodemon": "^1.19.1",
