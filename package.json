@@ -46,7 +46,7 @@
     "jest-css-modules": "^2.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "aws-sdk": "^2.500.0",
